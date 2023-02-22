@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties>
+		<property name="dialect" value="mysql" />
+	</properties>
+		
+	<typeAliases>
+		<!-- common -->
+		<typeAlias type="cn.ac.big.gsa.common.pojo.Country" alias="Country"/>
+		<typeAlias type="cn.ac.big.gsa.common.pojo.Taxon" alias="Taxon"/>
+	</typeAliases>
+
+	<mappers>
+	  <!-- common -->
+	  	<mapper resource="cn/ac/big/gsa/common/dao/dm/CountryMapper.xml"/>
+	  	<mapper resource="cn/ac/big/gsa/common/dao/dm/TaxonMapper.xml"/>
+	</mappers>			
+</configuration>		
+			

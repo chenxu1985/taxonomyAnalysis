@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ac.big.gsa.common.dao.TaxonMapper">
+    <resultMap id="Taxon" type="Taxon"> 
+	    <id column="taxon_id" property="taxonId" jdbcType="INTEGER" /> 
+		<result column="name" property="name" jdbcType="VARCHAR"/> 
+    </resultMap> 
+    
+	<select id="findTaxonById" parameterType="int" resultMap="Taxon">
+		SELECT 
+			tax_id as taxon_id,
+			name_txt as name
+		FROM taxon_name 
+		WHERE tax_id=#{ taxonId } AND name_class="scientific name"
+	</select>
+	<select id="getTaxonNameList" parameterType="String" resultType="String">
+		SELECT name_txt as name FROM taxon_name WHERE name_txt like #{name}"%"  
+	</select>
+	
+	<select id="getTaxonNameAndIdList" parameterType="String" resultType="Map" useCache="true">
+		SELECT b.tax_id as taxon_id, b.name_txt as name FROM taxon_name b
+			LEFT JOIN taxon_node a ON b.tax_id = a.tax_id and a.ranks like "%species%"
+		WHERE name_txt like #{name}"%" group by b.tax_id, b.name_txt  
+	</select>
+	
+	<select id="getTaxonNameAndIdByName" parameterType="String" resultType="Map">
+		SELECT tax_id as taxon_id, name_txt as name FROM taxon_name WHERE name_txt=#{name} 
+	</select>
+	<select id="selectCraCount" parameterType="hashmap" resultType="int">
+		select count(r.run_id) from cra c,run r
+		where c.cra_id=r.cra_id and c.`status`=3 and c.release_state=2 and r.`status`=10 and r.release_state=2
+		and c.accession=#{gsaAcc} and r.accession=#{runAcc}
+	</select>
+
+</mapper>

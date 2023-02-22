@@ -1,0 +1,130 @@
+.submit_progress_bar_interval{
+	height: 15px;
+	/* border-bottom:5px solid #ACD4EA; */
+}
+
+.bar_active{
+	border-bottom:5px solid #ACD4EA;
+/* 	border-bottom:5px solid #1580b8; */
+}
+
+.bar_disabled{
+	border-bottom:5px solid #afafaf;
+}
+
+.badge-active {
+  display: inline-block;
+  min-width: 100%;
+  padding: 5px 7px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #ACD4EA;
+  border-radius: 10px;
+}
+.badge-disabled {
+  display: inline-block;
+  min-width: 100%;
+  padding: 5px 7px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #afafaf;
+  border-radius: 10px;
+}
+
+.spanActive{
+	padding-bottom:3px;
+	border-bottom:5px solid #1580b8;
+}
+#submitNav1 .txt-span{
+	font-weight:200;
+	font-size:15px;
+}
+
+.badge-choosed{
+	background-color: #1580b8;
+}
+
+#submitNav1 .a-disabled, #submitNav2 .a-disabled{
+	pointer-events:none;
+	color:#6f6f6f;	
+	cursor:default;
+	display: inline-block;
+  	min-width: 100%;
+  	padding: 5px 7px;
+  	font-size: 17px;
+  	font-weight: bold;
+  	line-height: 1;
+  	text-align: center;
+  	white-space: nowrap;
+  	vertical-align: middle;
+  	background-color: #afafaf;
+  	border-radius: 10px;
+}
+
+#submitNav1{
+	padding-top:0px;
+	padding-bottom:10px;
+} 
+#submitNav1 .col-md-1{
+	padding-left:0;
+	padding-right:0;	
+}
+
+#submitNav2 a, #submitNav1 a{
+	text-decoration:none;
+}
+
+#submitter .row{
+	padding-left:35px;
+}
+
+#errorMsg{
+	padding-left:35px;
+	padding-bottom:10px;
+}
+#errorMsg li{
+	padding-left: 0;
+	list-style: none;	
+	color: #a94442;
+}
+.errorMessage{
+	padding-left: 35px;
+	list-style: none;	
+	color: #a94442;	
+}
+.subbar {
+	padding:1px 5px;
+	font-size:16px;
+	color:#181818;
+	font-family:'Arial';
+}
+
+.ui-autocomplete {
+   max-height: 250px;
+   overflow-y: auto;
+   /* prevent horizontal scrollbar */
+   overflow-x: hidden;
+ }
+ /* IE 6 doesn't support max-height
+  * we use height instead, but this forces the menu to always be this tall
+  */
+* html .ui-autocomplete {
+   height: 250px;
+ }
+
+.form-group .myalert {
+	float:left;
+	padding:7px 10px 5px;
+	margin-bottom:0;
+}
+	

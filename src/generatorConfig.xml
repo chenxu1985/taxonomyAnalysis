@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="E:\webwork\sra\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.13-bin.jar" />
+  <context id="context1" >
+  	<commentGenerator>    
+            <property name="suppressAllComments" value="true" />  
+  	</commentGenerator> 
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.118.25:3306/big_sra_20151112_1" userId="bigsra" password="bigsra" />
+    <!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/sra_20141106" userId="root" password="123456" /> -->
+    <javaModelGenerator targetPackage="cn.ac.big.sra.common.pojo" targetProject="." />
+    <sqlMapGenerator targetPackage="cn.ac.big.sra.common.dao.dm" targetProject="." />
+    <javaClientGenerator targetPackage="cn.ac.big.sra.common.dao" targetProject="." type="XMLMAPPER" />
+    <table schema="" tableName="accession" domainObjectName="Accession" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <!--
+    <table schema="" tableName="sra" domainObjectName="Sra" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <table schema="" tableName="experiment" domainObjectName="Experiment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <table schema="" tableName="run" domainObjectName="Run" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    -->
+    <!--<table schema="" tableName="run_data_file" domainObjectName="RunDataFile" />-->
+    <!--<table schema="" tableName="exp_link" domainObjectName="ExpLink" />-->
+    <!-- 
+    <table schema="" tableName="exp_platform" domainObjectName="ExpPlatform" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <table schema="" tableName="exp_lib_selection" domainObjectName="ExpLibSelection" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <table schema="" tableName="exp_lib_strategy" domainObjectName="ExpLibStrategy" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    <table schema="" tableName="exp_lib_source" domainObjectName="ExpLibSource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+    -->
+    <!--<table schema="" tableName="exp_pipeline" domainObjectName="ExpPipeline" />-->
+ </context>
+</generatorConfiguration>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="index" namespace="/" extends="struts-shop">
+		<action name="index" method="index" class="indexAction">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	<package name="taxonomy" namespace="/taxonomy" extends="struts-shop">
+		<action name="detail" method="detail" class="cn.ac.big.gsa.common.action.TaxonomyAction">
+			<result name="success">/taxonomy/taxonomy_detail.jsp</result>
+		</action>
+	</package>
+
+</struts>

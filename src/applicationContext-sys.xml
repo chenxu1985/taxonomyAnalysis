@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xmlns:aop="http://www.springframework.org/schema/aop"      
+      xmlns:tx="http://www.springframework.org/schema/tx"       
+      xmlns:jdbc="http://www.springframework.org/schema/jdbc"       
+      xmlns:context="http://www.springframework.org/schema/context"      
+      xsi:schemaLocation="       
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd       
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd       
+      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd       
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd       
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-autowire="byName">     
+
+    <context:annotation-config/>
+	<context:component-scan base-package="cn.ac.big.gsa.sys"/>
+	
+	<!-- language -->
+	<bean id="langAction" class="cn.ac.big.gsa.common.action.LangAction"/>	
+	
+	<!-- Daos -->
+	<bean id="userMapper" class="cn.ac.big.gsa.sys.dao.impl.UserMapperImpl" />
+
+	<bean id="baseDao" abstract="true" class="cn.ac.big.gsa.common.dao.IBaseDao" />
+	<bean id="baseDaoImpl" class="cn.ac.big.gsa.common.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sqlSessionFactory" />
+	</bean>
+<!-- 	<bean id="redao" abstract="true" class="cn.ac.big.gsa.sys.dao.impl.SysDao">	 -->
+<!-- 	</bean> -->
+	<bean id="redaoimpl" class="cn.ac.big.gsa.sys.dao.impl.SysDaoImpl">
+	    <property name="sessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	<bean id="userRoleMapper" class="cn.ac.big.gsa.sys.dao.impl.UserRoleMapperImpl">
+	</bean>
+	<bean id="roleMapper" class="cn.ac.big.gsa.sys.dao.impl.RoleMapperImpl">
+	</bean>
+	<bean id="moduleMapper" class="cn.ac.big.gsa.sys.dao.impl.ModuleMapperImpl">
+	</bean>	
+	<!-- Services -->
+	<bean id="registerService" class="cn.ac.big.gsa.sys.service.impl.RegisterServiceImpl">
+	      <property name="userMapper" ref="userMapper" /> 
+	      <property name="userRoleMapper" ref="userRoleMapper" /> 
+	</bean>
+	<bean id="ibaseService" abstract="true" class="cn.ac.big.gsa.common.service.IBaseService" scope="prototype" />
+	<bean id="baseService" class="cn.ac.big.gsa.common.service.impl.BaseServiceImpl">
+		<property name="baseDao" ref="baseDaoImpl" />
+	</bean>
+	<bean id="userService" class="cn.ac.big.gsa.sys.service.impl.UserServiceImpl">
+		<property name="userMapper" ref="userMapper"/>
+	</bean>
+	<bean id="roleService" class="cn.ac.big.gsa.sys.service.impl.RoleServiceImpl">
+		<property name="userRoleMapper" ref="userRoleMapper"/>
+		<property name="roleMapper" ref="roleMapper" />
+	</bean>
+	<bean id="moduleService" class="cn.ac.big.gsa.sys.service.impl.ModuleServiceImpl">
+		<property name="moduleMapper" ref="moduleMapper" />
+	</bean>
+	
+	<!-- Actions -->
+	<bean id="registerAction" class="cn.ac.big.gsa.sys.action.RegisterAction" scope="prototype">
+	     <property name="registerService" ref="registerService"/>
+	     <property name="userService" ref="userService" />
+	</bean>
+	<bean id="checkCodeAction" class="cn.ac.big.gsa.sys.action.CheckCodeAction" scope="prototype"/>
+	
+	<bean id="roleOperationAction" class="cn.ac.big.gsa.sys.action.RoleOperationAction" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="roleService" ref="roleService" />
+	</bean>
+    <bean id="loginAction" class="cn.ac.big.gsa.sys.action.LoginAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<bean id="authorityAction" class="cn.ac.big.gsa.sys.action.AuthtorityAction" scope="prototype">
+		<property name="roleService" ref="roleService" />
+		<property name="moduleService" ref="moduleService" />
+	</bean>
+	
+	<bean id="userOperationAction" class="cn.ac.big.gsa.sys.action.UserOperationAction" scope="prototype">
+		<property name="roleService" ref="roleService" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="countryAction" class="cn.ac.big.gsa.sys.action.CountryAction" scope="prototype">
+		<property name="countryService" ref="countryService" />
+	</bean>
+	<bean id="checkEmailAction" class="cn.ac.big.gsa.sys.action.CheckEmailAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="retrievePasswordAction" class="cn.ac.big.gsa.sys.action.RetrievePasswordAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="resetPasswordAction" class="cn.ac.big.gsa.sys.action.ResetPasswordAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="indexAction" class="cn.ac.big.gsa.common.action.IndexAction" scope="prototype"/>
+	<bean id="documentsAction" class="cn.ac.big.gsa.common.action.DocumentsAction" scope="prototype"/>
+
+</beans>

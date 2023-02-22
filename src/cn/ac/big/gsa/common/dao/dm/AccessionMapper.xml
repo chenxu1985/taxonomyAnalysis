@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ac.big.gsa.common.dao.AccessionMapper" >
+  <resultMap id="BaseResultMap" type="cn.ac.big.gsa.common.pojo.Accession" >
+    <result column="accession_type" property="accessionType" jdbcType="VARCHAR" />
+    <result column="accession_value" property="accessionValue" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.ac.big.gsa.common.pojo.Accession" >
+    insert into accession (accession_type, accession_value)
+    values (#{accessionType,jdbcType=VARCHAR}, #{accessionValue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ac.big.gsa.common.pojo.Accession" >
+    insert into accession
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accessionType != null" >
+        accession_type,
+      </if>
+      <if test="accessionValue != null" >
+        accession_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accessionType != null" >
+        #{accessionType,jdbcType=VARCHAR},
+      </if>
+      <if test="accessionValue != null" >
+        #{accessionValue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="selectByAccType" parameterType="string" resultMap="BaseResultMap">
+  	SELECT accession_value 
+  	FROM accession 
+  	WHERE accession_type=#{accessionType}  
+  </select>
+  
+  <select id="selectAllAccessions" resultMap="BaseResultMap">
+  	SELECT * 
+  	FROM accession 
+  </select>
+  
+  <update id="updateByAccType" parameterType="string">
+  	UPDATE 
+  		accession 
+  	SET
+  		accession_value=#{accessionValue} 
+  	WHERE
+  		accession_type=#{accessionType}
+  </update>
+  
+  <select id="selectMaxPrjAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		project 	
+  </select>
+  
+  <select id="selectMaxSampleAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		sample 	
+  </select>
+  
+  <select id="selectMaxExptAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		experiment 	
+  </select>
+  
+  <select id="selectMaxRunAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		run 	
+  </select>
+  <select id="selectMaxCraAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		cra 	
+  </select>
+  <select id="selectMaxCrpAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		crp 	
+  </select>
+  <select id="selectMaxCrsAcc" resultType="string">
+  	SELECT
+  	    max(accession) 
+  	FROM
+  		crs 	
+  </select>
+</mapper>

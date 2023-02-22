@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- account -->
+	<package name="account" namespace="/account" extends="struts-default">
+		<!-- loggedin -->
+		<action name="loggedin" class="loginAction" method="loggedIn">
+			<result name="relogin" type="redirect">${prePage}</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		<!-- register -->
+		<action name="register" class="registerAction" method="register">
+			<result name="success">/member/register_note.jsp</result>
+			<result name="error">/member/register.jsp</result>
+			<result name="input">/member/register.jsp</result>
+		</action>
+		<action name="casregister" class="registerAction" method="execUserRegisterFromCAS">
+			<result name="success" type="redirect">/member/register_note.jsp</result>
+		</action>
+		<action name="active" class="registerAction" method="activeRegister">
+			<result name="success">/member/account_active.jsp</result>
+			<result name="error">/member/account_active.jsp</result>
+		</action>
+		<!-- register end -->
+
+		<!-- check start -->
+		<action name="checkcode" class="checkCodeAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<!-- check end -->
+
+		<!-- login start -->
+		<!-- loginfail -->
+		<action name="loginFail" class="loginAction" method="loginFail">
+			<result name="success">/index.jsp</result>
+			<result name="error">/login_failed.jsp</result>
+		</action>
+		<!-- sso login -->
+		<action name="login" class="loginAction" method="login1">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="login">/member/login.jsp</result>
+			<result name="redirectPrepage" type="redirect">${prePage}</result>
+		</action>
+		<action name="retrievePassword" class="retrievePasswordAction"
+			method="retrievePassword">
+			<result name="success">/member/forget_passwd_note.jsp</result>
+			<result name="error">/member/forget_passwd.jsp</result>
+		</action>
+		<action name="resetPasswd" class="resetPasswordAction" method="resetPassword">
+			<result name="success">/member/reset_passwd_success.jsp</result>
+			<result name="error">/member/reset_passwd.jsp</result>
+		</action>
+		<action name="logout" class="loginAction" method="logout">
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<!-- login end -->
+	</package>
+
+	<!-- sys -->
+	<!-- role -->
+	<package name="roleManager" namespace="/sys/role" extends="struts-default">
+		<action name="getrolelist" class="roleOperationAction" method="loadRoles">
+			<result name="success">/sys/user/list_role.jsp</result>
+		</action>
+		<action name="getuserrole" class="roleOperationAction"
+			method="loaduserrole">
+			<result name="success">/sys/user/user_role.jsp</result>
+		</action>
+		<action name="getroledetail" class="roleOperationAction"
+			method="loadroledetail">
+			<result name="success">/sys/user/role_detail.jsp</result>
+		</action>
+		<action name="alterroledetail" class="roleOperationAction"
+			method="editroledetail">
+			<result name="success">/sys/user/alter_role.jsp</result>
+		</action>
+		<action name="addrole" class="roleOperationAction"
+			method="addRole">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getrolelist</param>
+				<param name="nameSpace">/sys/role</param>
+			</result>
+			<result name="error">/sys/user/add_role.jsp</result>
+		</action>
+		<action name="alterrole" class="roleOperationAction"
+			method="editRole">
+			<result type="redirectAction">
+				<param name="actionName">getrolelist</param>
+				<param name="namespace">/sys/role</param>
+			</result>
+		</action>
+		<action name="delrole" class="roleOperationAction"
+			method="deleteRole">
+			<result type="redirectAction">
+				<param name="actionName">getrolelist</param>
+				<param name="nameSpace">/sys/role</param>
+			</result>
+		</action>
+		<action name="submituserrole" class="roleOperationAction"
+			method="submitUserrole">
+			<result type="redirectAction">
+				<param name="actionName">getUserList</param>
+				<param name="nameSpace">/sys/user</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- auth manager -->
+	<package name="authManager" namespace="/sys/auth" extends="struts-default">
+		<!-- auth start -->
+		<action name="getAuthority" class="authorityAction" method="execAuthorityOperationFunc">
+			<result name="success">/sys/user/authorize_config.jsp</result>
+		</action>
+
+		<action name="saveAuthority" class="authorityAction" method="execSaveAuthorityFunc">
+			<result name="success" type="redirect">/sys/auth/getAuthority</result>
+		</action>
+		<!-- suth end -->
+	</package>
+	
+	<package name="userManager" namespace="/sys/user" extends="struts-default">
+		<!-- user start -->
+		<action name="getUserList" class="userOperationAction" method="execGetAllUserListFunc">
+			<result name="success">/sys/user/list_user.jsp</result>
+		</action>
+
+		<action name="getUserDetail" class="userOperationAction" method="execGetUserDetailFunc">
+			<result name="success">/sys/user/user_detail.jsp</result>
+		</action>
+
+		<action name="activeUser" class="userOperationAction" method="activeUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getUserList</param>
+				<param name="namespace">/sys/user</param>
+			</result>
+		</action>
+
+		<action name="lockUser" class="userOperationAction" method="lockUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getUserList</param>
+				<param name="namespace">/sys/user</param>
+			</result>
+		</action>
+		<action name="delUser" class="userOperationAction" method="deleteUser">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getUserList</param>
+				<param name="namespace">/sys/user</param>		
+			</result>
+		</action>
+		<!-- user end -->
+	</package>
+
+	<!-- data manager -->
+	<package name="umbrellaManager" namespace="/sys/umbrella" extends="struts-default">
+		<!-- super project start -->
+		<action name="addSuperProject" class="superProjectOperationAction"
+			method="addSuperProject">
+			<result name="success">/sys/umbrella/super_project_list.jsp</result>
+		</action>
+		<action name="supPrjAuth" class="superProjectAuthorizationAction"
+			method="loadSupPrjAuth">
+			<result name="success">/sys/umbrella/super_project_authorization.jsp</result>
+		</action>
+		<action name="submitSupPrjAuth" class="superProjectAuthorizationAction" method="submitSupPrjAuth">
+			<result name="success" type="redirectAction">
+			<param name="actionName">getUserList</param>
+			<param name="namespace">/sys/user</param>
+			</result>
+		</action>
+		<!-- super project end -->
+	</package>
+	
+	<package name="sysAjax" namespace="/sys/ajax" extends="json-default">
+		<action name="listCountries" class="countryAction" method="listCountries">
+			<result name="success" type="json">
+			</result>
+		</action>
+		<action name="checkEmail" class="checkEmailAction" method="checkEmail">
+		</action>
+		<action name="listSuperProjects" class="superProjectOperationAction"
+			method="loadSuperProjects">
+			<result name="success" type="json"/>
+		</action>
+
+	</package>
+</struts>   

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ac.big.gsa.sys.dao.ModuleMapper">
+	<resultMap id="UserAuthMap" type="Module">
+		<id property="moduleId" column="module_id" />
+		<result property="moudleName" column="module_name" />
+		<result property="pmoduleId" column="pmodule_id" />
+		<result property="moduleNumber" column="module_number" />
+		<result property="grade" column="grade" />
+	</resultMap>
+	
+	<resultMap id="UserRoleMap" type="cn.ac.big.gsa.sys.pojo.UserRoleBean">
+		<id property="userId" column="user_id" />
+		<result property="roleId" column="role_id" />
+	</resultMap>
+	
+	<resultMap id="RoleModuleMap" type="cn.ac.big.gsa.sys.pojo.RoleModuleBean">
+		<id property="roleId" column="role_id" />
+		<result property="moduleId" column="module_id" />
+	</resultMap>
+	
+	
+	<select id="getAllModuleList" resultMap="UserAuthMap">
+		select module_id,module_name,pmodule_id,module_number,grade from module order by module_id
+	</select>
+	
+	<select id="getAllRoleModuleList" resultMap="RoleModuleMap">
+		select * from role_module order by role_id,module_id
+	</select>
+	
+	<select id="getModulesByRoleId" parameterType="int" resultMap="UserAuthMap">
+		select c.module_id,c.module_number,c.module_name from role_module b,module c where b.module_id=c.module_id and b.role_id=#{roleId}	
+	</select>
+
+	<select id="getGivenUserRole" parameterType="int" resultMap="UserRoleMap">
+		select role_id from user_role where user_id=#{userId}
+	</select>
+	
+
+	
+	
+	<update id="truncateRoleMoudle">
+		truncate table role_module
+	</update>
+	
+	<insert id="insertRoleModule" parameterType="cn.ac.big.gsa.sys.pojo.RoleModuleBean">
+		insert into role_module(role_id,module_id) values(#{roleId},#{moduleId})
+	</insert>
+	
+
+</mapper>

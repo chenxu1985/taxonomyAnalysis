@@ -1,0 +1,121 @@
+.qiang-table-tree .QTTHeader{position:absolute;top:0;right:0;left:0;height:40px;line-height:40px}
+.qiang-table-tree .QTTContainer{top:30px;bottom:0;left:0;right:0;}
+.qiang-table-tree .tLabel{display:block;position:relative;width:100%;height:40px;line-height:40px;box-sizing:border-box}
+.qiang-table-tree .qttNode .tLabel{padding-left:20px}
+/*.qiang-table-tree .tValue{position:absolute;top:0;left:40%;right:0;height:41px;line-height:41px;box-sizing:border-box;border-bottom:#a6a6a6 1px solid}*/
+.qiang-table-tree .QTTHeader .tValue{border:0}
+/*.qiang-table-tree .treeHeaderBox,.qiang-table-tree .qttItem{position:relative;width:50%}*/
+.qiang-table-tree .treeHeaderBox:after,.qiang-table-tree .qttItem:after{content:'';clear:both;display:table}
+.qiang-table-tree .tValue:after{content:'';clear:both;display:table}
+.qiang-table-tree .tValue>li{position:relative;float:left}
+.qiang-table-tree .td-1{width:30%}
+.qiang-table-tree .td-2{width:20%}
+.qiang-table-tree .qttBox.Level-0 .tLabel{padding-left:30px}
+.qiang-table-tree .qttBox.Level-1 .tLabel{padding-left:55px}
+.qiang-table-tree .qttBox.Level-2 .tLabel{padding-left:70px}
+.qiang-table-tree .qttBox.Level-3 .tLabel{padding-left:85px}
+.qiang-table-tree .qttBox.Level-4 .tLabel{padding-left:100px}
+.qiang-table-tree .qttBox.Level-5 .tLabel{padding-left:115px}
+.qiang-table-tree .qttBox.Level-6 .tLabel{padding-left:130px}
+.qiang-table-tree .qttBox.Level-7 .tLabel{padding-left:145px}
+.qiang-table-tree .qttBox.Level-8 .tLabel{padding-left:160px}
+.qiang-table-tree .qttBox.Level-9 .tLabel{padding-left:175px}
+.qiang-table-tree .qttBox.Level-10 .tLabel{padding-left:190px}
+
+.qiang-table-tree .qttBox.Level-11 .tLabel{padding-left:205px}
+.qiang-table-tree .qttBox.Level-12 .tLabel{padding-left:220px}
+.qiang-table-tree .qttBox.Level-13 .tLabel{padding-left:235px}
+.qiang-table-tree .qttBox.Level-14 .tLabel{padding-left:250px}
+.qiang-table-tree .qttBox.Level-15 .tLabel{padding-left:265px}
+.qiang-table-tree .qttBox.Level-16 .tLabel{padding-left:280px}
+.qiang-table-tree .qttBox.Level-17 .tLabel{padding-left:295px}
+.qiang-table-tree .qttBox.Level-18 .tLabel{padding-left:310px}
+.qiang-table-tree .qttBox.Level-19 .tLabel{padding-left:325px}
+.qiang-table-tree .qttBox.Level-20 .tLabel{padding-left:340px}
+
+
+.qiang-table-tree .qttBox.Level-21 .tLabel{padding-left:355px}
+.qiang-table-tree .qttBox.Level-22 .tLabel{padding-left:370px}
+.qiang-table-tree .qttBox.Level-23 .tLabel{padding-left:385px}
+.qiang-table-tree .qttBox.Level-24 .tLabel{padding-left:400px}
+.qiang-table-tree .qttBox.Level-25 .tLabel{padding-left:415px}
+.qiang-table-tree .qttBox.Level-26 .tLabel{padding-left:430px}
+.qiang-table-tree .qttBox.Level-27 .tLabel{padding-left:445px}
+.qiang-table-tree .qttBox.Level-28 .tLabel{padding-left:460px}
+.qiang-table-tree .qttBox.Level-29 .tLabel{padding-left:475px}
+.qiang-table-tree .qttBox.Level-30 .tLabel{padding-left:490px}
+
+.qiang-table-tree .qttBox.Level-31 .tLabel{padding-left:505px}
+.qiang-table-tree .qttBox.Level-32 .tLabel{padding-left:520px}
+.qiang-table-tree .qttBox.Level-33 .tLabel{padding-left:535px}
+.qiang-table-tree .qttBox.Level-34 .tLabel{padding-left:550px}
+.qiang-table-tree .qttBox.Level-35 .tLabel{padding-left:565px}
+.qiang-table-tree .qttBox.Level-36 .tLabel{padding-left:580px}
+.qiang-table-tree .qttBox.Level-37 .tLabel{padding-left:595px}
+.qiang-table-tree .qttBox.Level-38 .tLabel{padding-left:610px}
+.qiang-table-tree .qttBox.Level-39 .tLabel{padding-left:625px}
+.qiang-table-tree .qttBox.Level-40 .tLabel{padding-left:640px}
+
+.qiang-table-tree .t-text{display:inline-block;vertical-align:top;height:40px;line-height:40px}
+.qiang-table-tree .t-icon,.qiang-table-tree .t-bar{display:inline-block;vertical-align:top;height:40px;line-height:40px}
+.qiang-table-tree .t-bar>li{display:inline-block;height:40px;line-height:40px;margin-left:2px;margin-right:2px;font-size:.8em;cursor:pointer}
+.qiang-table-tree .tAction{position:relative;margin-left:20px;box-sizing:border-box}
+.qiang-table-tree .qttNode .tLabel .tAction:after{content:'';position:absolute;top:10px;left:-30px;width:20px;height:20px;cursor:pointer}
+.qiang-table-tree .qttNode.qttLeaf .tLabel .tAction:after{display:none}
+.qiang-table-tree .tAction:before{content:'';position:absolute;top:20px;left:-20px;width:20px;height:1px;border-top:#a6a6a6 1px solid}
+.qiang-table-tree .qttNode{position:relative}
+.qiang-table-tree .qttNode:before{content:'';position:absolute;height:100%;width:1px;border-left:#a6a6a6 1px solid;z-index:1}
+.qiang-table-tree .qttBox.Level-0>.qttNode:before{left:30px}
+.qiang-table-tree .qttBox.Level-1>.qttNode:before{left:55px}
+.qiang-table-tree .qttBox.Level-2>.qttNode:before{left:70px}
+.qiang-table-tree .qttBox.Level-3>.qttNode:before{left:85px}
+.qiang-table-tree .qttBox.Level-4>.qttNode:before{left:100px}
+.qiang-table-tree .qttBox.Level-5>.qttNode:before{left:115px}
+.qiang-table-tree .qttBox.Level-6>.qttNode:before{left:130px}
+.qiang-table-tree .qttBox.Level-7>.qttNode:before{left:145px}
+.qiang-table-tree .qttBox.Level-8>.qttNode:before{left:160px}
+.qiang-table-tree .qttBox.Level-9>.qttNode:before{left:175px}
+.qiang-table-tree .qttBox.Level-10>.qttNode:before{left:190px}
+
+.qiang-table-tree .qttBox.Level-11>.qttNode:before{left:205px}
+.qiang-table-tree .qttBox.Level-12>.qttNode:before{left:220px}
+.qiang-table-tree .qttBox.Level-13>.qttNode:before{left:235px}
+.qiang-table-tree .qttBox.Level-14>.qttNode:before{left:250px}
+.qiang-table-tree .qttBox.Level-15>.qttNode:before{left:265px}
+.qiang-table-tree .qttBox.Level-16>.qttNode:before{left:280px}
+.qiang-table-tree .qttBox.Level-17>.qttNode:before{left:295px}
+.qiang-table-tree .qttBox.Level-18>.qttNode:before{left:310px}
+.qiang-table-tree .qttBox.Level-19>.qttNode:before{left:325px}
+.qiang-table-tree .qttBox.Level-20>.qttNode:before{left:340px}
+
+.qiang-table-tree .qttBox.Level-21>.qttNode:before{left:355px}
+.qiang-table-tree .qttBox.Level-22>.qttNode:before{left:370px}
+.qiang-table-tree .qttBox.Level-23>.qttNode:before{left:385px}
+.qiang-table-tree .qttBox.Level-24>.qttNode:before{left:400px}
+.qiang-table-tree .qttBox.Level-25>.qttNode:before{left:415px}
+.qiang-table-tree .qttBox.Level-26>.qttNode:before{left:430px}
+.qiang-table-tree .qttBox.Level-27>.qttNode:before{left:445px}
+.qiang-table-tree .qttBox.Level-28>.qttNode:before{left:460px}
+.qiang-table-tree .qttBox.Level-29>.qttNode:before{left:475px}
+.qiang-table-tree .qttBox.Level-30>.qttNode:before{left:490px}
+
+.qiang-table-tree .qttBox.Level-31>.qttNode:before{left:505px}
+.qiang-table-tree .qttBox.Level-32>.qttNode:before{left:520px}
+.qiang-table-tree .qttBox.Level-33>.qttNode:before{left:535px}
+.qiang-table-tree .qttBox.Level-34>.qttNode:before{left:550px}
+.qiang-table-tree .qttBox.Level-35>.qttNode:before{left:565px}
+.qiang-table-tree .qttBox.Level-36>.qttNode:before{left:580px}
+.qiang-table-tree .qttBox.Level-37>.qttNode:before{left:595px}
+.qiang-table-tree .qttBox.Level-38>.qttNode:before{left:610px}
+.qiang-table-tree .qttBox.Level-39>.qttNode:before{left:625px}
+.qiang-table-tree .qttBox.Level-40>.qttNode:before{left:640px}
+
+.qiang-table-tree .qttNode.ROOT:before{display:none}
+.qiang-table-tree .qttBox>.qttNode:last-child:before{height:20px}
+.qiang-table-tree .qttBox>.qttNode.last-child:before{height:20px}
+.qiang-table-tree .qttItem{position:relative;height:25px}
+.qiang-table-tree .t-bar{display:none}
+.qiang-table-tree .qttItem:hover .t-bar{display:inline-block}
+.qiang-table-tree .qttNode .tAction:after{background:url('../images/qtt_shrink.png') no-repeat center center;z-index:100}
+.qiang-table-tree .qttNode.shrink .tAction:after{background:url('../images/qtt_expand.png') no-repeat center center}
+.qiang-table-tree .qttNode.shrink .qttBox{display:none}

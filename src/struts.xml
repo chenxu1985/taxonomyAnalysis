@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--constants -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- <constant name="struts.devMode" value="true" /> -->
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="gsa" />
+	<constant name="struts.action.extension" value=",action,"/> 
+	<include file="struts-sys.xml" />
+	<include file="struts-taxonomy.xml" />
+	<!--login check -->
+	<package name="struts-shop" extends="json-default">
+		<interceptors>
+			<interceptor name="authLogin"
+				class="cn.ac.big.gsa.common.interceptor.AuthorizationInterceptor" />
+			<interceptor-stack name="myStack">
+				<!--  <interceptor-ref name="authLogin" />-->
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="myStack"/>
+		<global-results>
+			<result name="unhandledException">/error.jsp</result>
+			<result name="login">/member/login.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="noauth">/member/noauth.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="langAjax" namespace="/ajax" extends="json-default">
+		<action name="lang" class="langAction">
+			<result name="success" type="json"/>
+		</action>
+	</package>
+</struts>

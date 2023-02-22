@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ac.big.gsa.sys.dao.UserRoleMapper">
+  <resultMap id="RoleMap" type="cn.ac.big.gsa.sys.pojo.RoleBean" >
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="desp" property="desp" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
+    <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="BaseResultMap" type="cn.ac.big.gsa.sys.pojo.UserRoleBean">
+  	<result column="user_id" property="userId" jdbcType="INTEGER" />
+  	<result column="role_id" property="roleId" jdbcType="INTEGER" />
+  </resultMap>
+  
+  
+  <insert id="insertuserrole">
+    insert into user_role(user_id,role_id) values(#{userId},#{roleId})
+  </insert>
+  
+  <delete id="deleteByUserId" parameterType="java.lang.Integer" >
+    delete  from user_role  where user_id=#{userId} 
+  </delete>
+ 
+  <delete id="deleteByRoleId" parameterType="java.lang.Integer" >
+    delete  from user_role  where role_id=#{roleId} 
+  </delete>
+  
+  <select id="selectUserRoleByUserId" parameterType="int" resultMap="BaseResultMap">
+    select * from user_role where user_id=#{userId}
+  </select>
+  
+  <select id="selectUserRoleByRoleId" parameterType="int" resultMap="BaseResultMap">
+    select * from user_role where role_id=#{roleId}
+  </select>
+  
+  <update id="updateuserrole" parameterType="int">
+   update user_role set role_id=#{role_id} where user_id=#{userId}
+  </update>
+  
+  <select id="findRolesByUserId" parameterType="int" resultMap="RoleMap">
+  	select 
+  		b.* 
+  	from 
+  		user_role a 
+  		left join role b on b.role_id = a.role_id
+  	where 
+  		a.user_id=#{userId} and b.is_deleted=0 
+  </select>
+</mapper>

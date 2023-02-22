@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ac.big.gsa.common.dao.CountryMapper">
+
+	<resultMap id="Country" type="Country">
+		<id column="country_id" property="countryId" jdbcType="INTEGER" />
+		<result column="country_name" property="countryName" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<select id="findCountryById" parameterType="int"
+		resultMap="Country">
+		SELECT * FROM country WHERE country_id=#{ countryId }
+	</select>
+
+	<select id="listAllCountries" resultMap="Country">
+		SELECT * FROM country
+	</select>
+</mapper>

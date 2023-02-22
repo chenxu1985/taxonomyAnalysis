@@ -1,0 +1,147 @@
+/* basic-css */
+/* 鍩烘湰鍏冪礌閲嶇疆 */
+html { overflow-x:hidden; }
+*{margin:0px; padding:0px;}
+img{border:0px;}
+a{text-decoration:none; color:#404242; outline:none;}
+li,dl,dt,dd{list-style-type:none;}
+table{ border-collapse:collapse;  border-spacing: 0;}
+td{word-wrap:break-word;}
+
+
+/* 鍐呭  */
+.content{width:1200px;margin: auto; clear:both; height:auto; padding:20px 0 0 0; overflow:auto;}
+.content_left{width:820px;margin: auto; float:left}
+.content_right{width:340px;margin: auto; float:right;}
+
+.block{ border-top:1px solid #ddd; border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:2px solid #f5f5f5;}
+.line{border-bottom:1px solid #fcfcfc;height:37px;background-image: url(/img/bj02.png);background-repeat: repeat-x; font-size:15px; color:#232323; line-height:37px; padding-left:10px;}
+.line h1{font-size:20px; color:#154bb7; line-height:37px;font-family:"Arial"; font-weight:normal;}
+.line img{ padding-right:6px;}
+
+
+.con_left1{width:818px; height:auto;float:left; clear:both; padding-bottom:10px;margin-bottom:15px;}
+.con_left1 p {display: block;position: relative;height: auto;line-height: 19px;color: #555;font-size: 15px;padding: 10px 14px 0 12px;font-family:"Arial";text-align:justify;}
+.pic01{ position:relative; width:auto; height:auto;float: right;}  
+.con_left1 p a{font-size: 14px;font-family:"Arial";color: #0f55e3; font-weight:bolder}
+.con_left1 p a:hover{color: #cb1d1d; text-decoration:underline;}
+
+/*娴佺▼鍥�鏍峰紡*/
+.step{width:110px; height: 100px;background-color:#88d1e9; border: 6px solid #d9ebed; float:left;  text-align:center; font-family:"Arial"; -webkit-border-radius:70px;-moz-border-radius:70px;border-radius:70px; padding-top:10px; float:left; margin-left:10px;font-size: 24px;color:#0c40b6; }
+.step1 {width:35px; height: 70px; float:left; padding-top:50px;}
+.f00{position:absolute; width:110px; height: 80px; word-wrap:break-word;font-size:16px; font-family:Arial; line-height:18px; float:left;  text-align:center; font-family:"Arial";  }
+.f00 a{position:relative;text-decoration:none; color:#085771;} 
+.f00 a:hover{text-decoration:none;background:none; color:#0f55e3;} 
+.f00 span{display:none; text-align:left;color:#fff; z-index:9999;} 
+.f00 a:hover span{display:block;top:-100px;left:0px; relative:absolute;padding:10px 14px 15px 14px;}/*娴佺▼鍥�鏍峰紡- end*/
+
+
+
+/*.process{width:800px;height: 330px;padding-top:10px;float:left;	margin-left:10px;background-image: url(/img/in_ico07.png);	background-repeat: no-repeat;	background-position: 50px 10px;}
+.shuzi{position:absolute;width:40px;height: 40px;word-wrap:break-word;	font-size:20px;	font-family:Arial;line-height:40px;	float:left;
+	text-align:center;font-family:"Arial";background-image: url(/img/in_ico08.png);background-repeat: no-repeat; color:#39444a; z-index:9999; }
+.f01{position:absolute; width:105px; height: 70px; word-wrap:break-word;font-size:17px; font-family:Arial; line-height:18px; float:left;  text-align:center; font-family:"Arial"; background-color:#4981ba; border: 5px solid #d9ebed; float:left;  text-align:center; font-family:"Arial"; -webkit-border-radius:70px;-moz-border-radius:70px;border-radius:70px; padding:45px 5px 0 5px}
+.f01 a{position:relative;text-decoration:none; color:#a9e5ff;} 
+.f01 a:hover{text-decoration:none;background:none; color:#a9fff4;} 
+.f01 span{display:none; text-align:left;color:#fff; z-index:9999;} 
+.f01 a:hover span{display:block;top:-100px;left:0px; relative:absolute;padding:10px 14px 15px 14px; z-index:99999;}*/
+
+.process{width:800px;height: 330px;padding-top:10px;float:left;	margin-left:10px;background-image: url(/img/in_ico07.png);	background-repeat: no-repeat;	background-position: 50px 10px;}
+.shuzi{position:absolute;width:40px;height: 40px;word-wrap:break-word;	font-size:20px;	font-family:Arial;line-height:40px;	float:left;
+	text-align:center;font-family:"Arial";background-image: url(/img/in_ico08.png);background-repeat: no-repeat; color:#39444a; z-index:9999; }
+.f01{position:absolute; width:135px; height: 135px; word-wrap:break-word;font-size:17px; font-family:Arial; line-height:18px; float:left;  text-align:center; font-family:"Arial"; float:left;  text-align:center;}
+
+.f01 a{position:absolute; width:115px; height: 105px; word-wrap:break-word;font-size:16px; ine-height:30px; float:left;font-family:"Arial"; float:left;  text-align:center; background-image: url(/img/pic07.png);	background-repeat: no-repeat;background-position: left top; padding:30px 10px 0 10px; color:#beebfe;} 
+.f01 a:hover{text-decoration:none;color:#b8fff6;background-image: url(/img/pic08.png);background-repeat: no-repeat;background-position: left top;
+} 
+
+.f01 span{display:none; text-align:left;color:#fff; z-index:9999;} 
+.f01 a:hover span{display:block;top:-100px;left:0px; relative:absolute;padding:10px 14px 15px 14px; z-index:99999;}/*流程图1样式- end*/
+.f01 h1 {font-family:"Arial";font-size:24px; font-weight:bolder; line-height:24px;}
+
+.con_right1{width:338px; height:auto;float:left; clear:both; margin-bottom:15px;}
+
+.con_right1 ul{ padding-bottom:8px;}
+.con_right1 li {display: block;position: relative;height: auto;line-height: 18px;color: #333;font-size: 13px;padding: 0 0 5px 20px;font-family:"Arial";	background-image: url(/img/in_ico02.png);background-repeat: no-repeat;	background-position: 3px 3px; border-bottom:1px dotted #d2d2d2; margin:10px 12px;}
+.con_right1>li>a{display: block;position: relative;height: auto;line-height: 18px;font-size: 13px;font-family:"Arial";color: #154bb7}
+.con_right1>li>a:hover{color: #337ab7; text-decoration:underline;}
+
+
+.table{width: 100%}
+.table td{padding: 8px 6px;font-size: 13px;font-family:"Arial";}
+.table td a {color:#0f55e3;text-decoration:none;}
+.table td a:hover {color: #337ab7; text-decoration:underline;}
+.table-border td,.table-border th{border-top: 1px solid #e7e7e7;border-bottom: 1px solid #e7e7e7;border-right: 1px solid #e7e7e7;line-height: 18px;}
+.table-border th{
+	text-align: left;
+	font-weight: 300;
+	font-size: 16px;
+	color: #fcfcfc;
+	line-height:35px;
+	text-align:center;
+	background-color: #787878;
+}
+.table .active td{background: #ecf7fa}
+
+
+.con_right2 {height: auto;line-height: 18px;color: #333;font-size: 13px;font-family:"Arial";margin:10px 12px; padding-bottom:13px;}
+.con_right2 a{line-height: 18px;font-size: 13px;font-family:"Arial";color: #0f55e3}
+.con_right2 a:hover{color: #337ab7; text-decoration:underline;}
+/* 鍐呭 -  end */
+
+
+/* Documentation  */
+.titlebar{width:340px;margin: auto; float:left;}
+.titlebar1{width:338px; height:auto;float:left; clear:both; margin-bottom:15px;}
+.titlebar li {display: block;position: relative;height: auto;color: #333;font-size: 15px;font-family:"Arial";}
+.titlebar>li>a{display: block;position: relative;height: auto;line-height: 30px;font-size: 15px;color: #555;background-image: url(/img/in_ico02.png);background-repeat: no-repeat;	background-position: 12px 13px;border-bottom:1px dotted #d2d2d2;padding: 5px 0 5px 30px; width:308px; height:30px;}
+.titlebar>li>a:hover{color: #337ab7; background-color:#fafafa; text-decoration:none;line-height: 30px;font-size: 15px;}
+.titlebar li a.current{background-color:#fafafa;color: #337ab7;}
+
+.article{width:820px;margin: auto; float:right}
+.article1{width:818px; height:auto;float:left; clear:both; padding-bottom:10px;margin-bottom:15px;}
+.article1 .h1 {font-size: 22px;font-family:"Arial";color: #555; font-weight:normal; border-bottom:3px solid #1775d5; margin: 15px 14px; line-height:35px;}
+.article1 .text {display: block;position: relative;height: auto;line-height: 24px;color: #555;font-size: 14px;padding: 0 0 12px 0;font-family:"Arial"; border-bottom:1px solid #d9d9d9; margin: 0 14px 20px 14px; }
+.article1 .text p{}
+.article1 .h2 {font-size: 14px;font-family:"Arial";color: #2896ba; font-weight:normal; margin: 0px 14px 10px 14px; font-weight:bolder;}
+.article1 .text a{font-size: 14px;font-family:"Arial";color: #0f55e3;}
+.article1 .text a:hover{color: #cb1d1d; text-decoration:underline;}
+.article1 em {font-size:14px; color:#0c64b6; line-height:18px; padding-top:10px;font-style: italic}
+.article1 i{font-size: 14px;font-family:"Arial";color: #fcfcfc; font-weight:normal; background-color:#1775d5; padding:2px 8px; line-height:24px;}
+.article1 img { padding:10px 0; border:0;}
+/* Documentation -  end */
+
+/****************rolling picture*********************/
+.wrap{width:350px; margin:10px 10px 10px 20px; position:relative; overflow:hidden; border-bottom-left-radius:0px; border-bottom-right-radius:0px; line-height:30px;}
+.banner{height:210px; width:350px; margin:0 auto; position:relative; overflow:hidden;}
+.banner .d1{width:350px; height:210px; position:relative; float:left;}
+.banner .d1 .leftPic{width:350px; height:210px;}
+/*.banner .d1 .rightTxt{width:000px; height:000px; float:right; background:#CCCCCC;}*/
+ .d2{width:350px;height:15px; position:absolute; z-index:100; top:195px; margin:0 auto;  opacity: 1;}
+ .d2 ul{float:left;position:absolute;right:10px; display:inline;}
+ .d2 li{width:17px;height:15px;overflow:hidden;cursor:pointer;background:url(/img/img1_1.png) no-repeat center;float:left;margin:0 5px;display:inline;}
+ .d2 li.nuw{background:url(/img/img1_2.png) no-repeat center;}
+/*.tab_san{display:block;width:17px;height:34px; position:absolute; top:29px; right:299px; z-index:1000px;}*/
+/*****************rolling picture end*******************/
+
+/* start here  */
+.start_here{width:780px; height:auto;float:left; clear:both;margin-bottom:15px;line-height: 22px;color: #555;font-size: 15px; padding:0px 16px 30px 16px; margin-top:-1px;}
+.start_here img { padding:5px 0;} 
+.start_here  h1 {font-size: 18px;font-family:"Arial";color: #1775d5; font-weight:normal;font-weight:bolder; margin-top:15px; line-height:24px}
+.start_here  i{font-size: 14px;font-family:"Arial";color: #fcfcfc; font-weight:normal; background-color:#1775d5; padding:2px 8px; line-height:24px;}
+
+.start_here a{font-size: 14px;font-family:"Arial";color: #0f55e3;}
+.start_here a:hover{color: #cb1d1d; text-decoration:underline;}
+
+.start_here p {background-color:#f6efc6; width:760px; height:auto; padding:10px; margin:5px 0; font-size:14px; color:#000;}
+/* start here -  end */
+
+
+
+/**download**/
+.incon1{width:1200px;height: 230px; float:left; font-size:20px; padding-top:15px; background-color:#f8f8f8; margin-bottom:40px;}
+.incon1_1{width:1140px;height: 230px;float:left; padding-left:30px;font-size:14px; line-height:15px; color: #232323; text-align:left;}
+.incon1_1 span{font-size:18px;  line-height:15px; color: #E55B36; font-weight:bold;}
+.incon1_1 p{padding-left:25px; line-height:24px;}
+.incon1_1 a{font-size:15px;color:#154bb7; line-height: 30px;text-decoration:none;}
+.incon1_1 a:hover{text-decoration:underline;color: #cb1d1d;}
