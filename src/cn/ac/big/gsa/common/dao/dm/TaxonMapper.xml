@@ -4,7 +4,14 @@
     <resultMap id="Taxon" type="Taxon"> 
 	    <id column="taxon_id" property="taxonId" jdbcType="INTEGER" /> 
 		<result column="name" property="name" jdbcType="VARCHAR"/> 
-    </resultMap> 
+    </resultMap>
+	<resultMap id="RunTaxonMap" type="cn.ac.big.gsa.common.pojo.RunTaxon">
+		<id column="taxon_id" property="taxonId" jdbcType="INTEGER" />
+		<result column="accession" property="accession" jdbcType="VARCHAR"/>
+		<result column="public_root" property="publicRoot" jdbcType="INTEGER"/>
+		<result column="archived_file_dir" property="archivedFileDir" jdbcType="VARCHAR"/>
+	</resultMap>
+
     
 	<select id="findTaxonById" parameterType="int" resultMap="Taxon">
 		SELECT 
@@ -30,6 +37,12 @@
 		select count(r.run_id) from cra c,run r
 		where c.cra_id=r.cra_id and c.`status`=3 and c.release_state=2 and r.`status`=10 and r.release_state=2
 		and c.accession=#{gsaAcc} and r.accession=#{runAcc}
+	</select>
+
+	<select id="selectRunTaxon" parameterType="String" resultMap="RunTaxonMap">
+		select r.accession,rdf.public_root,rdf.archived_file_dir
+		from run r,run_data_file rdf
+		where r.accession=#{runAcc} and r.run_id = rdf.run_id group by r.run_id
 	</select>
 
 </mapper>

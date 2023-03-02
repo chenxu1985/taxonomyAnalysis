@@ -9,12 +9,21 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</properties>
 		
 	<typeAliases>
+		<!-- sys-->
+		<typeAlias alias="User" type="cn.ac.big.gsa.sys.pojo.User" />
+		<typeAlias alias="Module" type="cn.ac.big.gsa.sys.pojo.Module" />
+		<typeAlias alias="Role" type="cn.ac.big.gsa.sys.pojo.RoleBean" />
 		<!-- common -->
 		<typeAlias type="cn.ac.big.gsa.common.pojo.Country" alias="Country"/>
 		<typeAlias type="cn.ac.big.gsa.common.pojo.Taxon" alias="Taxon"/>
 	</typeAliases>
 
 	<mappers>
+		<!--sys -->
+		<mapper resource="cn/ac/big/gsa/sys/dao/dm/UserMapper.xml" />
+		<mapper resource="cn/ac/big/gsa/sys/dao/dm/ModuleMapper.xml" />
+		<mapper resource="cn/ac/big/gsa/sys/dao/dm/RoleMapper.xml" />
+		<mapper resource="cn/ac/big/gsa/sys/dao/dm/UserRoleMapper.xml" />
 	  <!-- common -->
 	  	<mapper resource="cn/ac/big/gsa/common/dao/dm/CountryMapper.xml"/>
 	  	<mapper resource="cn/ac/big/gsa/common/dao/dm/TaxonMapper.xml"/>

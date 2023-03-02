@@ -23,12 +23,12 @@
 			<li><a href="https://ngdc.cncb.ac.cn/gsa/browse/">Browse</a></li>
 			<li><a href="https://ngdc.cncb.ac.cn/gsa/browse/<s:property value="gsaAcc" />"><s:property value="gsaAcc" /></a></li>
 			<li><a href="https://ngdc.cncb.ac.cn/gsa/browse/<s:property value="gsaAcc" />/<s:property value="runAcc" />"><s:property value="runAcc" /></a></li>
-			<li class="active">TaxonomyAnalysis</li>
+			<li class="active">Taxonomy Analysis</li>
 		</ol>
 		<s:if test="flag==0">
 			<div class="panel panel-info">
 				<!-- General info -->
-				<div class="panel-heading">Taxonomy Analysis</div>
+				<div class="panel-heading"><s:text name="gsa.taxonomyDetail.taxonomyAnalysis"/></div>
 				<div class="panel-body">
 					<div class="ui mini statistics" style="padding:1em 0">
 						<div class="ui green statistic">
@@ -57,11 +57,11 @@
 
 			<div class="panel panel-info">
 				<!-- General info -->
-				<div class="panel-heading">Krona</div>
+				<div class="panel-heading"><s:text name="gsa.taxonomyDetail.useKrona"/></div>
 				<div class="panel-body">
 					<div style="margin-right: 10px;margin-left: 10px;">
 						<span style="color: #21b8ff" onclick="openKrona()" id="option_krona">Show Krona View</span>
-						<iframe id="kronaDisplay" class="expand-body" width="100%" height="1200" frameborder="no" src="treePath/krona_SRR13402847_dense.html" style="display: none"></iframe>
+						<iframe id="kronaDisplay" class="expand-body" width="100%" height="1200" frameborder="no" src="<s:property value='kronaPath' />" style="display: none"></iframe>
 							<%--<iframe id="kronaDisplay" class="expand-body" width="100%" height="1100" frameborder="no" src="http://192.168.164.20:9286/gsa-human/treePath/krona_SRR13402847_dense.html" style="display: none"></iframe>--%>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 			(function($) {
 				'use strict';
 				$(function() {
-					var jsonPath = "treePath/tree.json";
+					var jsonPath = "<s:property value='jsonPath' />";
 
 					var QTT = window.QTT.qiangTableTree( {
 						TreeBox : $('#qiang-table-tree'),

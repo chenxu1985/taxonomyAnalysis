@@ -1,5 +1,6 @@
 package cn.ac.big.gsa.common.action;
 
+import cn.ac.big.gsa.common.pojo.RunTaxon;
 import cn.ac.big.gsa.common.service.TaxonService;
 
 import javax.annotation.Resource;
@@ -21,6 +22,18 @@ public class TaxonomyAction {
             int count =  this.taxonService.selectCraCount(gsaAcc,runAcc);
             if(count<=0){
                 flag=1;
+            } else{
+                RunTaxon runTaxon = this.taxonService.selectRunTaxon(runAcc);
+                if(runTaxon!=null){
+                    //int publicRoot = runTaxon.getPublicRoot();
+                    String dir = runTaxon.getArchivedFileDir();
+                    int length = dir.split("/").length;
+                    dir = dir.replace(dir.split("/")[length-1],"");
+                    jsonPath = "treePath"+dir+runAcc+".json";
+                    kronaPath = "treePath"+dir+runAcc+".html";
+                } else {
+                    flag=1;
+                }
             }
         } else {
             flag=1;

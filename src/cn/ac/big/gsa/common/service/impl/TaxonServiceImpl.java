@@ -3,6 +3,7 @@ package cn.ac.big.gsa.common.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import cn.ac.big.gsa.common.pojo.RunTaxon;
 import cn.ac.big.gsa.common.pojo.Taxon;
 import cn.ac.big.gsa.common.dao.TaxonMapper;
 import cn.ac.big.gsa.common.service.TaxonService;
@@ -37,4 +38,8 @@ public class TaxonServiceImpl implements TaxonService {
 		return taxonMapper.selectCraCount(gsaAcc,runAcc);
 	}
 
+	@Override
+	public RunTaxon selectRunTaxon(String runAcc) {
+		return taxonMapper.selectRunTaxon(runAcc);
+	}
 }
