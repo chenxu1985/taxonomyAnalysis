@@ -61,7 +61,7 @@
 				<div class="panel-body">
 					<div style="margin-right: 10px;margin-left: 10px;">
 						<span style="color: #21b8ff" onclick="openKrona()" id="option_krona">Show Krona View</span>
-						<iframe id="kronaDisplay" class="expand-body" width="100%" height="1200" frameborder="no" src="<s:property value='kronaPath' />" style="display: none"></iframe>
+						<iframe id="kronaDisplay" class="expand-body" width="100%" height="1200" frameborder="no"  style="display: none"></iframe>
 							<%--<iframe id="kronaDisplay" class="expand-body" width="100%" height="1100" frameborder="no" src="http://192.168.164.20:9286/gsa-human/treePath/krona_SRR13402847_dense.html" style="display: none"></iframe>--%>
 					</div>
 				</div>
@@ -146,12 +146,57 @@
 			function openKrona(){
 				var option_krona = $("#option_krona").html();
 				if(option_krona=='Show Krona View'){
-					$("#kronaDisplay").css("display","table-row");
-					$("#option_krona").html("Hide Krona View");
+
+					var param={"runAcc":'<s:property value="runAcc" />'};
+					$.ajax({
+					url: 'taxonomy/json/openKrona',
+					type: 'post',
+					data:param,
+					async: true,
+					dataType: 'json',
+					success: function(data){
+						var kronaPath = data.kronaPath;
+						$("#kronaDisplay").attr("src",kronaPath);
+						$("#kronaDisplay").css("display","table-row");
+						$("#option_krona").html("Hide Krona View");
+					},
+					error:function(){
+					alert("error");
+					}
+					});
+
 				} else if(option_krona=='Hide Krona View'){
 					$("#kronaDisplay").css("display","none");
 					$("#option_krona").html("Show Krona View");
 				}
+
+
+				<%--var param={"id":id};--%>
+				<%--$.ajax({--%>
+					<%--url: 'share/cancel',--%>
+					<%--type: 'post',--%>
+					<%--data:param,--%>
+					<%--async: true,--%>
+					<%--dataType: 'json',--%>
+					<%--success: function(){--%>
+						<%--var selector = "#share_" + id;--%>
+						<%--$(selector).html("");--%>
+						<%--$(selector).removeClass("share");--%>
+						<%--$(selector).append("<a class='btn btn-danger btn-xs' style='width:66px;margin-top:5px;font-weight:bold' href='javascript:void(0)' onclick=\"javascript:share('"+id+"','"+acc+"')\"><s:text name="cra.share"/></a>");--%>
+					<%--},--%>
+					<%--error:function(){--%>
+						<%--alert("error");--%>
+					<%--}--%>
+				<%--});--%>
+
+				// var option_krona = $("#option_krona").html();
+				// if(option_krona=='Show Krona View'){
+				// 	$("#kronaDisplay").css("display","table-row");
+				// 	$("#option_krona").html("Hide Krona View");
+				// } else if(option_krona=='Hide Krona View'){
+				// 	$("#kronaDisplay").css("display","none");
+				// 	$("#option_krona").html("Show Krona View");
+				// }
 			}
 		</script>
 </body>

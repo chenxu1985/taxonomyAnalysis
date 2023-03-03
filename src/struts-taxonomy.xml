@@ -15,5 +15,9 @@
 			<result name="success">/taxonomy/taxonomy_detail.jsp</result>
 		</action>
 	</package>
-
+	<package name="openKrona" namespace="/taxonomy/json" extends="json-default">
+		<action name="openKrona" class="cn.ac.big.gsa.common.action.TaxonomyAction" method="openKrona">
+			<result name="success" type="json" />
+		</action>
+	</package>
 </struts>
