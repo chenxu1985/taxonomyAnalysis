@@ -67,6 +67,10 @@ public class TaxonomyAction {
                 p.waitFor();
             } catch (Exception e) {
                 e.printStackTrace();
+            }finally {
+                if(p!=null){
+                    p.destroy();
+                }
             }
 
             return SUCCESS;
