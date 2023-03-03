@@ -7,7 +7,7 @@
         <to>/index</to>
     </rule>
     <rule>
-        <from>^/taxonomy/(CRA[0-9]{6})/(CRR[0-9]{6})$</from>
+        <from>^/(CRA[0-9]{6})/(CRR[0-9]{6})$</from>
         <to type="forward">/taxonomy/detail?gsaAcc=$1&amp;runAcc=$2</to>
     </rule>
 </urlrewrite>
