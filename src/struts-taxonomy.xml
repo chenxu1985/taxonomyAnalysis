@@ -7,7 +7,8 @@
 
 	<package name="index" namespace="/" extends="struts-shop">
 		<action name="index" method="index" class="indexAction">
-			<result name="success">/index.jsp</result>
+			<result name="success">/taxonomy/detail?gsaAcc=${gsaAcc}&amp;runAcc=${runAcc}</result>
+			<result name="index" type="redirect">index.jsp</result>
 		</action>
 	</package>
 	<package name="taxonomy" namespace="/taxonomy" extends="struts-shop">

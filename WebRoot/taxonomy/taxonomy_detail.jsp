@@ -5,18 +5,23 @@
 <html>
 <head>
 	<title>NGDC - Taxonomy Analysis</title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<jsp:include page="/inc/css_js.jsp"/>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-table.min.css" />
-	<script type="text/javascript" src="js/bootstrap-table.min.1.14.1.js"></script>
+	<%
+		String basePath = "https://ngdc.cncb.ac.cn/gsa/taxonomyAnalysis";
+	%>
 </head>
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap-table.min.css" />
+	<script type="text/javascript" src="<%=basePath%>/js/bootstrap-table.min.1.14.1.js"></script>
+
 <body>
 <jsp:include page="/inc/header_taxonomy.jsp"/>
-<link href="DataTables/SemanticUI-2.2.13/semantic.min.css" type="text/css" rel="stylesheet">
+<link href="<%=basePath%>/DataTables/SemanticUI-2.2.13/semantic.min.css" type="text/css" rel="stylesheet">
 <%--<link href="css/cra/jquery.treeview.css" type="text/css" rel="stylesheet">--%>
-<link href="QTableTree/css/reset.css" rel="stylesheet">
-<link href="QTableTree/QiangTableTree/jquery.qtt.min.css" rel="stylesheet">
-<link href="QTableTree/QiangTableTree/skin/default.css" rel="stylesheet">
-<link href="QTableTree/css/worldcupteam.css" rel="stylesheet">
+<link href="<%=basePath%>/QTableTree/css/reset.css" rel="stylesheet">
+<link href="<%=basePath%>/QTableTree/QiangTableTree/jquery.qtt.min.css" rel="stylesheet">
+<link href="<%=basePath%>/QTableTree/QiangTableTree/skin/default.css" rel="stylesheet">
+<link href="<%=basePath%>/QTableTree/css/worldcupteam.css" rel="stylesheet">
 	<div class="container">
 		<ol class="breadcrumb">
 			<li><a href="https://ngdc.cncb.ac.cn/gsa/">Home</a></li>
@@ -78,14 +83,14 @@
 			</div>
 		</div>
 		</s:else>
-
-		<script type="text/javascript" src="QTableTree/QiangTableTree/jquery.qtt.min.js"></script>
+		<input type="hidden" id="base" value="<%=basePath%>"/>
+		<script type="text/javascript" src="<%=basePath%>/QTableTree/QiangTableTree/jquery.qtt.min.js"></script>
 		<script type="text/javascript">
 			(function($) {
 				'use strict';
 				$(function() {
-					var jsonPath = "<s:property value='jsonPath' />";
-
+					var base = $("#base").val();
+					var jsonPath = base+"<s:property value='jsonPath' />";
 					var QTT = window.QTT.qiangTableTree( {
 						TreeBox : $('#qiang-table-tree'),
 						createNodeIconHTML: function( nodeObj ){
@@ -146,16 +151,16 @@
 			function openKrona(){
 				var option_krona = $("#option_krona").html();
 				if(option_krona=='Show Krona View'){
-
+					var base = $("#base").val();
 					var param={"runAcc":'<s:property value="runAcc" />'};
 					$.ajax({
-					url: 'taxonomy/json/openKrona',
+					url: base+'/taxonomy/json/openKrona',
 					type: 'post',
 					data:param,
 					async: true,
 					dataType: 'json',
 					success: function(data){
-						var kronaPath = data.kronaPath;
+						var kronaPath = base+data.kronaPath;
 						$("#kronaDisplay").attr("src",kronaPath);
 						$("#kronaDisplay").css("display","table-row");
 						$("#option_krona").html("Hide Krona View");

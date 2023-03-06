@@ -23,6 +23,7 @@ public class TaxonomyAction {
     @Resource
     private TaxonService taxonService;
     public String detail() {
+        System.out.println("detail");
         flag=0;
         if(gsaAcc!=null&&runAcc!=null){
             int count =  this.taxonService.selectCraCount(gsaAcc,runAcc);
@@ -35,7 +36,7 @@ public class TaxonomyAction {
                     String dir = runTaxon.getArchivedFileDir();
                     int length = dir.split("/").length;
                     dir = dir.replace(dir.split("/")[length-1],"");
-                    jsonPath = "treePath"+dir+runAcc+".json";
+                    jsonPath = "/treePath"+dir+runAcc+".json";
                     //kronaPath = "treePath"+dir+runAcc+".html";
                 } else {
                     flag=1;
@@ -44,6 +45,11 @@ public class TaxonomyAction {
         } else {
             flag=1;
         }
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("WW_TRANS_I18N_LOCALE")+"local");
+        session.setAttribute("gsaAcc",gsaAcc);
+        session.setAttribute("runAcc",runAcc);
         return SUCCESS;
     }
 
@@ -54,7 +60,7 @@ public class TaxonomyAction {
             String dir = runTaxon.getArchivedFileDir();
             int length = dir.split("/").length;
             dir = dir.replace(dir.split("/")[length-1],"");
-            kronaPath = "treePath"+dir+runAcc+".html";
+            kronaPath = "/treePath"+dir+runAcc+".html";
             String textPath = "/gsa_taxonomy"+dir+runAcc+".txt";
             String htmlPath = "/gsa_taxonomy"+dir+runAcc+".html";
             Process p =null;

@@ -1,6 +1,10 @@
 package cn.ac.big.gsa.common.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class LangAction extends ActionSupport{
 
@@ -15,12 +19,9 @@ public class LangAction extends ActionSupport{
 	
 	@Override
 	public String execute(){
-//		HttpServletRequest request = ServletActionContext.getRequest();
-//		this.prePage = request.getRequestURI();
-//		String queryStr = request.getQueryString();
-//		if(queryStr!=null && !"".equals(queryStr))
-//			this.prePage+="?"+queryStr;	
-//		this.prePage = (String)session.get("prePage");
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		System.out.println(session.getAttribute("WW_TRANS_I18N_LOCALE")+"lang");
 		return SUCCESS;
 	}
 

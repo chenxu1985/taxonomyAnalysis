@@ -1,5 +1,5 @@
 <head>
-	<base href="http://localhost:8080/taxonomyAnalysis/"/>
+	<base href="http://localhost:8080/gsa/taxonomyAnalysis/"/>
 	<link rel="stylesheet" type="text/css" href="https://ngdc.cncb.ac.cn/cdn/css/page.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/cra/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/cra/main.css" />
