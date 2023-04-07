@@ -61,8 +61,9 @@ public class TaxonomyAction {
             int length = dir.split("/").length;
             dir = dir.replace(dir.split("/")[length-1],"");
             kronaPath = "/treePath"+dir+runAcc+".html";
-            String textPath = "/gsa_taxonomy"+dir+runAcc+".txt";
-            String htmlPath = "/gsa_taxonomy"+dir+runAcc+".html";
+
+            String textPath = "/taxonomy/release"+dir+runAcc+".txt";
+            String htmlPath = "/taxonomy/release"+dir+runAcc+".html";
             Process p =null;
             String[] arr = new String[]{"/home/gsagroup/software/krona/bin/ktImportText",textPath,"-o",htmlPath};
             for(String a:arr){
