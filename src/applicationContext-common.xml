@@ -41,36 +41,36 @@
 		<!--代表每次检查链接的数量，建议设置和maxActive一样大，这样每次可以有效检查所有的链接  -->
 		<property name="numTestsPerEvictionRun" value="20"/>
 	</bean>
-	<bean id="ncbiDS" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
-		</property>
-		<property name="url" value="jdbc:mysql://192.168.130.12:3306/insdc_20221023?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
-		<property name="username" value="biggsa"/>
-		<property name="password" value="biggsa123"/>
+	<!--<bean id="ncbiDS" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+		<!--<property name="driverClassName">-->
+			<!--<value>com.mysql.jdbc.Driver</value>-->
+		<!--</property>-->
+		<!--<property name="url" value="jdbc:mysql://192.168.130.12:3306/insdc_20221023?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;failOverReadOnly=false"/>-->
+		<!--<property name="username" value="biggsa"/>-->
+		<!--<property name="password" value="biggsa123"/>-->
 
-		<property name="maxActive"><value>20</value></property>
-		<property name="initialSize"><value>1</value></property>
-		<property name="maxWait"><value>60000</value></property>
-		<property name="maxIdle"><value>20</value></property>
-		<property name="minIdle"><value>3</value></property>
+		<!--<property name="maxActive"><value>20</value></property>-->
+		<!--<property name="initialSize"><value>1</value></property>-->
+		<!--<property name="maxWait"><value>60000</value></property>-->
+		<!--<property name="maxIdle"><value>20</value></property>-->
+		<!--<property name="minIdle"><value>3</value></property>-->
 
-		<property name="removeAbandoned"><value>true</value></property>
+		<!--<property name="removeAbandoned"><value>true</value></property>-->
 
-		<property name="removeAbandonedTimeout"><value>180</value></property>
-		<property name="testWhileIdle"><value>true</value></property>
-		<property name="testOnBorrow"><value>false</value></property>
-		<property name="testOnReturn"><value>false</value></property>
-		<property name="validationQuery"><value>select 1</value></property>
-		<property name="validationQueryTimeout"><value>1</value></property>
-		<property name="timeBetweenEvictionRunsMillis"><value>30000</value></property>
-		<property name="numTestsPerEvictionRun"><value>20</value></property>
-	</bean>
+		<!--<property name="removeAbandonedTimeout"><value>180</value></property>-->
+		<!--<property name="testWhileIdle"><value>true</value></property>-->
+		<!--<property name="testOnBorrow"><value>false</value></property>-->
+		<!--<property name="testOnReturn"><value>false</value></property>-->
+		<!--<property name="validationQuery"><value>select 1</value></property>-->
+		<!--<property name="validationQueryTimeout"><value>1</value></property>-->
+		<!--<property name="timeBetweenEvictionRunsMillis"><value>30000</value></property>-->
+		<!--<property name="numTestsPerEvictionRun"><value>20</value></property>-->
+	<!--</bean>-->
 	<bean id="dataSource" class="cn.ac.big.gsa.common.datasource.DynamicDataSource">
 		<property name="targetDataSources">
 			<map key-type="java.lang.String">
 				<entry key="gsaDS" value-ref="gsaDS" />
-				<entry key="ncbiDS" value-ref="ncbiDS" />
+				<!--<entry key="ncbiDS" value-ref="ncbiDS" />-->
 			</map>
 		</property>
 		<property name="defaultTargetDataSource" ref="gsaDS" />

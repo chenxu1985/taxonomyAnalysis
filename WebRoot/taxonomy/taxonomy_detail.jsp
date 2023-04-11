@@ -8,7 +8,7 @@
 		<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<jsp:include page="/inc/css_js.jsp"/>
 	<%
-		String basePath = "https://ngdc.cncb.ac.cn/gsa/taxonomyAnalysis";
+		String basePath = "http://localhost:8080/gsa/taxonomyAnalysis";
 	%>
 </head>
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>/css/bootstrap-table.min.css" />

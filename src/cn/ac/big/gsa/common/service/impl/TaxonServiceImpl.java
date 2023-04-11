@@ -1,11 +1,13 @@
 package cn.ac.big.gsa.common.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import cn.ac.big.gsa.common.pojo.RunTaxon;
 import cn.ac.big.gsa.common.pojo.Taxon;
 import cn.ac.big.gsa.common.dao.TaxonMapper;
+import cn.ac.big.gsa.common.pojo.TaxonRun;
 import cn.ac.big.gsa.common.service.TaxonService;
 
 public class TaxonServiceImpl implements TaxonService {
@@ -41,5 +43,15 @@ public class TaxonServiceImpl implements TaxonService {
 	@Override
 	public RunTaxon selectRunTaxon(String runAcc) {
 		return taxonMapper.selectRunTaxon(runAcc);
+	}
+
+	@Override
+	public List<TaxonRun> selectUnTaxonomyRunList() {
+		return taxonMapper.selectUnTaxonomyRunList();
+	}
+
+	@Override
+	public int updateRunTaxonomy(HashMap runMap){
+		return taxonMapper.updateRunTaxonomy(runMap);
 	}
 }

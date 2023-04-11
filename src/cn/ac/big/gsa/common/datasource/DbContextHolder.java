@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 public class DbContextHolder {
 	private static Logger logger = Logger.getLogger(DbContextHolder.class);
 	public static final String GSA_DS = "gsaDS";
-	public static final String NCBI_DS = "ncbiDS";
+//	public static final String NCBI_DS = "ncbiDS";
 	private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();   
 	  
     public static void setDbType(String dbType) {   

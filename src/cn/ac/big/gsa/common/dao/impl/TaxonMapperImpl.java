@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.ac.big.gsa.common.pojo.RunTaxon;
+import cn.ac.big.gsa.common.pojo.TaxonRun;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 import cn.ac.big.gsa.common.pojo.Taxon;
@@ -45,5 +46,17 @@ public class TaxonMapperImpl extends SqlSessionDaoSupport implements TaxonMapper
 	public RunTaxon selectRunTaxon(String runAcc) {
 		String statement = "cn.ac.big.gsa.common.dao.TaxonMapper.selectRunTaxon";
 		return (RunTaxon) getSqlSessionTemplate().selectOne(statement, runAcc);
+	}
+	@Override
+	public List<TaxonRun> selectUnTaxonomyRunList() {
+		String statement = "cn.ac.big.gsa.common.dao.TaxonMapper.selectUnTaxonomyRunList";
+		return getSqlSessionTemplate().selectList(statement);
+	}
+
+
+	@Override
+	public int updateRunTaxonomy(HashMap runMap){
+		String statement = "cn.ac.big.gsa.common.dao.TaxonMapper.updateRunTaxonomy";
+		return getSqlSessionTemplate().update(statement,runMap);
 	}
 }

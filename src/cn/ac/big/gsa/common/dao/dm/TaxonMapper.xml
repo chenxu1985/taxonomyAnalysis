@@ -12,7 +12,12 @@
 		<result column="archived_file_dir" property="archivedFileDir" jdbcType="VARCHAR"/>
 	</resultMap>
 
-    
+	<resultMap id="TaxonRunMap" type="cn.ac.big.gsa.common.pojo.TaxonRun">
+		<result column="craAccession" property="craAccession" jdbcType="VARCHAR"/>
+		<result column="runAccession" property="runAccession" jdbcType="VARCHAR"/>
+		<result column="dir" property="dir" jdbcType="VARCHAR"/>
+	</resultMap>
+
 	<select id="findTaxonById" parameterType="int" resultMap="Taxon">
 		SELECT 
 			tax_id as taxon_id,
@@ -44,5 +49,21 @@
 		from run r,run_data_file rdf
 		where r.accession=#{runAcc} and r.run_id = rdf.run_id group by r.run_id
 	</select>
+
+	<select id="selectUnTaxonomyRunList"  resultMap="TaxonRunMap">
+		select c.accession as craAccession,r.accession as runAccession,rdf.archived_file_dir as dir from run r,run_data_file rdf,cra c
+		where r.`status`=10 and r.release_state=2 and r.is_taxonomy=0 and rdf.public_root=2 and r.run_data_type_id=1 and r.run_id=rdf.run_id
+		 and r.cra_id=c.cra_id
+		group by r.run_id
+	</select>
+
+
+	<update id="updateRunTaxonomy" parameterType="hashMap">
+		UPDATE
+		run
+		set
+		is_taxonomy=#{isTaxonomy}
+		where accession=#{accession}
+	</update>
 
 </mapper>
