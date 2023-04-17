@@ -27,7 +27,7 @@ public class TaxonomyAction {
     @Resource
     private TaxonService taxonService;
     public String detail() {
-        System.out.println("detail");
+        System.out.println("Taxonmy Detail");
         flag=0;
         if(gsaAcc!=null&&runAcc!=null){
             int count =  this.taxonService.selectCraCount(gsaAcc,runAcc);
@@ -94,34 +94,42 @@ public class TaxonomyAction {
     public void autoDaily(){
         //System.out.println("test");
         List<TaxonRun> taxonRuns = this.taxonService.selectUnTaxonomyRunList();
-//        String outPath = "/Users/laphael/Downloads/";
-        String outPath = "/taxonomy/daily/";
-        String fileName = "";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        fileName = "task"+sdf.format(new Date())+".txt";
-        outPath = outPath + fileName;
+        if(taxonRuns!=null){
+            if(taxonRuns.size()!=0){
+                System.out.println(taxonRuns.size());
+                //        String outPath = "/Users/laphael/Downloads/";
+                String outPath = "/taxonomy/daily/";
+                String fileName = "";
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+                fileName = "task"+sdf.format(new Date())+".txt";
+                outPath = outPath + fileName;
 
-        File toFile = new File(outPath);
-        if(toFile.exists()){
-            toFile.delete();
-        }
-        try {
-            toFile.createNewFile();
-            FileWriter toWriter = new FileWriter(toFile);
-            BufferedWriter toOut = new BufferedWriter(toWriter);
-            if(taxonRuns.size()>0){
-                for(TaxonRun taxonRun:taxonRuns){
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("accession",taxonRun.getRunAccession());
-                    hashMap.put("isTaxonomy",5);
-                    this.taxonService.updateRunTaxonomy(hashMap);
-                    toOut.write(taxonRun.getCraAccession()+"\t"+taxonRun.getRunAccession()+"\t"+taxonRun.getDir()+"\n");
+                File toFile = new File(outPath);
+                if(toFile.exists()){
+                    toFile.delete();
+                }
+                try {
+                    toFile.createNewFile();
+                    FileWriter toWriter = new FileWriter(toFile);
+                    BufferedWriter toOut = new BufferedWriter(toWriter);
+                    if(taxonRuns.size()>0){
+                        for(TaxonRun taxonRun:taxonRuns){
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("accession",taxonRun.getRunAccession());
+                            hashMap.put("isTaxonomy",5);
+                            this.taxonService.updateRunTaxonomy(hashMap);
+                            toOut.write(taxonRun.getCraAccession()+"\t"+taxonRun.getRunAccession()+"\t"+taxonRun.getDir()+"\n");
+                        }
+                    }
+                    toOut.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-            toOut.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println(new Date()+": is null");
         }
+
     }
 
     @Scheduled(cron = "0 10 2 * * ?") //每天2点钟执行
