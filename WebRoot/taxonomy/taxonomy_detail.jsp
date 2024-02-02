@@ -174,34 +174,6 @@
 					$("#kronaDisplay").css("display","none");
 					$("#option_krona").html("Show Krona View");
 				}
-
-
-				<%--var param={"id":id};--%>
-				<%--$.ajax({--%>
-					<%--url: 'share/cancel',--%>
-					<%--type: 'post',--%>
-					<%--data:param,--%>
-					<%--async: true,--%>
-					<%--dataType: 'json',--%>
-					<%--success: function(){--%>
-						<%--var selector = "#share_" + id;--%>
-						<%--$(selector).html("");--%>
-						<%--$(selector).removeClass("share");--%>
-						<%--$(selector).append("<a class='btn btn-danger btn-xs' style='width:66px;margin-top:5px;font-weight:bold' href='javascript:void(0)' onclick=\"javascript:share('"+id+"','"+acc+"')\"><s:text name="cra.share"/></a>");--%>
-					<%--},--%>
-					<%--error:function(){--%>
-						<%--alert("error");--%>
-					<%--}--%>
-				<%--});--%>
-
-				// var option_krona = $("#option_krona").html();
-				// if(option_krona=='Show Krona View'){
-				// 	$("#kronaDisplay").css("display","table-row");
-				// 	$("#option_krona").html("Hide Krona View");
-				// } else if(option_krona=='Hide Krona View'){
-				// 	$("#kronaDisplay").css("display","none");
-				// 	$("#option_krona").html("Show Krona View");
-				// }
 			}
 		</script>
 </body>
